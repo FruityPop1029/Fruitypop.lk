@@ -1,2 +1,0 @@
-# Fruitypop.lk
-Dehydrate Product
