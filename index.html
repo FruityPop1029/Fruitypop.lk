@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,33 +6,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fruitypop.lk | Dehydrated Fruits</title>
+    <title>FruityPop.lk | Crunchy Dehydrated Fruits</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+        content="FruityPop.lk - Delicious crunchy dehydrated fruits made from carefully selected fruits.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        header {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+            display: block;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #e67e22;
+        }
+
+        .cart-button {
+            border: none;
+            background: #f39c12;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .cart-button:hover {
+            background: #d68910;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+                url("images/pineapple.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        .small-title {
+            color: #e67e22;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #2f6b3c;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2f6b3c;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #24552f;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        .section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #e67e22;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section h2,
+        .products-section h2,
+        .contact-section h2 {
+            font-size: 36px;
+            color: #2f6b3c;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================== */
+
+        .products-section {
+            background: #f8faf6;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            background: #f5f5f5;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-card h3 {
+            color: #333;
+            margin-bottom: 7px;
+            font-size: 21px;
+        }
+
+        .product-card p {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .stock {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .add-cart {
+            width: 100%;
+            border: none;
+            background: #f39c12;
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #d68910;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-section {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: 25px auto;
+        }
+
+        .contact-item {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        .contact-item a {
+            color: #2f6b3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* =========================
+           SOCIAL MEDIA
+        ========================== */
+
+        .social-section {
+            background: #f8faf6;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .social-section h2 {
+            color: #2f6b3c;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .facebook {
+            background: #1877f2;
+        }
+
+        .instagram {
+            background: #c13584;
+        }
+
+        /* =========================
+           CART
+        ========================== */
+
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+        }
+
+        .cart-box {
+            background: white;
+            width: 95%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: absolute;
+            right: 20px;
+            top: 70px;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            color: #2f6b3c;
+        }
+
+        .close-cart {
+            border: none;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-controls button {
+            border: none;
+            background: #eee;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            color: #e74c3c;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .order-whatsapp {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #777;
+            padding: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #2f6b3c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu {
+                gap: 12px;
+            }
+
+            .menu a {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .section h2,
+            .products-section h2,
+            .contact-section h2 {
+                font-size: 29px;
+            }
+
+            .cart-box {
+                right: 2.5%;
+                top: 60px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <header>
+
         <nav class="navbar">
 
             <div class="logo">
-                Fruitypop.lk
+                <a href="#home">
+                    <img src="images/logo.png" alt="FruityPop.lk Logo">
+                </a>
             </div>
 
             <div class="menu">
+
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#products">Products</a>
                 <a href="#contact">Contact</a>
+
+                <button class="cart-button" onclick="openCart()">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+
             </div>
 
         </nav>
+
     </header>
 
 
-    <!-- Hero -->
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section id="home" class="hero">
 
         <div class="hero-content">
@@ -42,12 +572,12 @@
 
             <h1>
                 Taste the Goodness<br>
-                of Dehydrated Fruits
+                of Crunchy Fruits
             </h1>
 
             <p>
-                Deliciously dried fruits made for your everyday
-                snacking moments.
+                Deliciously dehydrated fruits made for your
+                everyday snacking moments.
             </p>
 
             <a href="#products" class="button">
@@ -59,95 +589,691 @@
     </section>
 
 
-    <!-- About -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section id="about" class="section">
 
-        <p class="section-label">ABOUT FRUITYPOP</p>
+        <p class="section-label">
+            ABOUT FRUITYPOP
+        </p>
 
-        <h2>Nature's Goodness, Dried to Perfection</h2>
+        <h2>
+            Nature's Goodness, Dried to Perfection
+        </h2>
 
         <p class="description">
-            Fruitypop.lk brings you delicious dehydrated fruits
-            made from carefully selected fruits. Enjoy the natural
-            taste and goodness of fruit in a convenient snack.
+            FruityPop.lk brings you delicious crunchy dehydrated
+            fruits made from carefully selected fruits.
+            Enjoy the natural taste and goodness of fruit
+            in a convenient snack.
         </p>
 
     </section>
 
 
-    <!-- Products -->
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
     <section id="products" class="products-section">
 
-        <p class="section-label">OUR PRODUCTS</p>
+        <p class="section-label">
+            OUR PRODUCTS
+        </p>
 
-        <h2>Dehydrated Fruits</h2>
+        <h2>
+            Crunchy Dehydrated Fruits
+        </h2>
 
         <div class="product-grid">
 
+
+            <!-- Banana -->
+
             <div class="product-card">
+
                 <div class="product-image">
-                    🍌
+                    <img src="images/banana.jpg"
+                         alt="Crunchy Banana">
                 </div>
-                <h3>Dehydrated Banana</h3>
-                <p>Natural & delicious fruit snack.</p>
+
+                <h3>Crunchy Banana</h3>
+
+                <p>
+                    Natural & delicious banana snack.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Banana')">
+                    🛒 Add to Cart
+                </button>
+
             </div>
 
 
+            <!-- Mango -->
+
             <div class="product-card">
+
                 <div class="product-image">
-                    🍍
+                    <img src="images/mango.jpg"
+                         alt="Crunchy Mango">
                 </div>
-                <h3>Dehydrated Pineapple</h3>
-                <p>Sweet tropical flavour in every bite.</p>
+
+                <h3>Crunchy Mango</h3>
+
+                <p>
+                    Delicious tropical mango flavour.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Mango')">
+                    🛒 Add to Cart
+                </button>
+
             </div>
 
 
+            <!-- Lime -->
+
             <div class="product-card">
+
                 <div class="product-image">
-                    🥭
+                    <img src="images/lime.jpg"
+                         alt="Crunchy Lime">
                 </div>
-                <h3>Dehydrated Mango</h3>
-                <p>A delicious tropical fruit snack.</p>
+
+                <h3>Crunchy Lime</h3>
+
+                <p>
+                    Refreshing and naturally tangy.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Lime')">
+                    🛒 Add to Cart
+                </button>
+
             </div>
+
+
+            <!-- Orange -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/orange.jpg"
+                         alt="Crunchy Orange">
+                </div>
+
+                <h3>Crunchy Orange</h3>
+
+                <p>
+                    Sweet and refreshing citrus snack.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Orange')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Strawberry -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/strawberry.jpg"
+                         alt="Crunchy Strawberry">
+                </div>
+
+                <h3>Crunchy Strawberry</h3>
+
+                <p>
+                    Sweet strawberry flavour in every bite.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Strawberry')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Papaya -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/papaya.jpg"
+                         alt="Crunchy Papaya">
+                </div>
+
+                <h3>Crunchy Papaya</h3>
+
+                <p>
+                    Naturally sweet tropical fruit snack.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Papaya')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Pineapple -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/pineapple.jpg"
+                         alt="Crunchy Pineapple">
+                </div>
+
+                <h3>Crunchy Pineapple</h3>
+
+                <p>
+                    Sweet tropical pineapple flavour.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Pineapple')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Watermelon -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/watermelon.jpg"
+                         alt="Crunchy Watermelon">
+                </div>
+
+                <h3>Crunchy Watermelon</h3>
+
+                <p>
+                    A unique and delicious fruit snack.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Watermelon')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Mix -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="images/mix.jpg"
+                         alt="Crunchy Mix">
+                </div>
+
+                <h3>Crunchy Mix</h3>
+
+                <p>
+                    A delicious mix of crunchy fruits.
+                </p>
+
+                <span class="stock">
+                    Stock Available
+                </span>
+
+                <button class="add-cart"
+                        onclick="addToCart('Crunchy Mix')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- Contact -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
     <section id="contact" class="contact-section">
 
-        <p class="section-label">GET IN TOUCH</p>
+        <p class="section-label">
+            GET IN TOUCH
+        </p>
 
-        <h2>Order Your Favourite Fruits</h2>
+        <h2>
+            Order Your Favourite Fruits
+        </h2>
 
         <p>
             Contact us for product details and orders.
         </p>
 
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+                📱 WhatsApp:
+                <a href="https://wa.me/94757798013" target="_blank">
+                    +94 75 779 8013
+                </a>
+            </div>
+
+            <div class="contact-item">
+                📱 WhatsApp:
+                <a href="https://wa.me/94777598013" target="_blank">
+                    +94 77 759 8013
+                </a>
+            </div>
+
+            <div class="contact-item">
+                📧 Email:
+                <a href="mailto:fruitypop.lk@gmail.com">
+                    fruitypop.lk@gmail.com
+                </a>
+            </div>
+
+        </div>
+
+
         <a href="https://wa.me/94757798013"
+           target="_blank"
            class="button">
-            WhatsApp Us
+            💬 WhatsApp Us
         </a>
 
     </section>
 
 
-    <!-- Footer -->
+    <!-- =========================
+         SOCIAL MEDIA
+    ========================== -->
+
+    <section class="social-section">
+
+        <p class="section-label">
+            FOLLOW FRUITYPOP
+        </p>
+
+        <h2>
+            Follow Us on Social Media
+        </h2>
+
+        <div class="social-links">
+
+            <!-- Replace # with your real Facebook URL -->
+            <a href="#"
+               target="_blank"
+               class="facebook">
+                Facebook
+            </a>
+
+            <!-- Replace # with your real Instagram URL -->
+            <a href="#"
+               target="_blank"
+               class="instagram">
+                Instagram
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CART POPUP
+    ========================== -->
+
+    <div id="cart-overlay" class="cart-overlay">
+
+        <div class="cart-box">
+
+            <div class="cart-header">
+
+                <h2>
+                    🛒 Your Cart
+                </h2>
+
+                <button class="close-cart"
+                        onclick="closeCart()">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="cart-items">
+
+                <div class="empty-cart">
+                    Your cart is empty.
+                </div>
+
+            </div>
+
+
+            <div class="cart-total">
+
+                Items:
+                <span id="cart-total-items">
+                    0
+                </span>
+
+                <br>
+
+                Price:
+                <span id="cart-total-price">
+                    Price will be confirmed
+                </span>
+
+            </div>
+
+
+            <a id="whatsapp-order"
+               class="order-whatsapp"
+               href="#"
+               target="_blank">
+
+                📲 Order via WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
-        <h3>Fruitypop.lk</h3>
+        <h3>
+            FruityPop.lk
+        </h3>
 
         <p>
-            Dehydrated Fruits • Naturally Delicious
+            Crunchy Dehydrated Fruits • Naturally Delicious
         </p>
 
         <p>
-            © 2026 Fruitypop.lk
+            📧 fruitypop.lk@gmail.com
+        </p>
+
+        <p>
+            © 2026 FruityPop.lk. All Rights Reserved.
         </p>
 
     </footer>
 
+
+    <!-- =========================
+         JAVASCRIPT - CART
+    ========================== -->
+
+    <script>
+
+        let cart = [];
+
+
+        function addToCart(productName) {
+
+            const existingProduct =
+                cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+
+                existingProduct.quantity++;
+
+            } else {
+
+                cart.push({
+                    name: productName,
+                    quantity: 1
+                });
+
+            }
+
+            updateCart();
+
+            alert(productName + " added to cart!");
+
+        }
+
+
+        function updateCart() {
+
+            const cartItems =
+                document.getElementById("cart-items");
+
+            const cartCount =
+                document.getElementById("cart-count");
+
+            const totalItems =
+                document.getElementById("cart-total-items");
+
+            const whatsappButton =
+                document.getElementById("whatsapp-order");
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    '<div class="empty-cart">Your cart is empty.</div>';
+
+                cartCount.innerText = "0";
+                totalItems.innerText = "0";
+
+                whatsappButton.href = "#";
+
+                return;
+            }
+
+
+            let totalQuantity = 0;
+
+            let html = "";
+
+            cart.forEach((item, index) => {
+
+                totalQuantity += item.quantity;
+
+                html += `
+
+                    <div class="cart-item">
+
+                        <div class="cart-item-name">
+                            ${item.name}
+                        </div>
+
+                        <div class="quantity-controls">
+
+                            <button
+                                onclick="decreaseQuantity(${index})">
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="increaseQuantity(${index})">
+                                +
+                            </button>
+
+                        </div>
+
+                        <button
+                            class="remove-item"
+                            onclick="removeFromCart(${index})">
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            cartItems.innerHTML = html;
+
+            cartCount.innerText = totalQuantity;
+
+            totalItems.innerText = totalQuantity;
+
+
+            /* Create WhatsApp Order Message */
+
+            let message =
+                "Hello FruityPop.lk!%0A%0A" +
+                "I would like to order:%0A%0A";
+
+
+            cart.forEach(item => {
+
+                message +=
+                    "• " +
+                    item.name +
+                    " x " +
+                    item.quantity +
+                    "%0A";
+
+            });
+
+
+            message +=
+                "%0APlease send me the available pack sizes, prices and delivery details.";
+
+
+            whatsappButton.href =
+                "https://wa.me/94757798013?text=" +
+                message;
+
+        }
+
+
+        function increaseQuantity(index) {
+
+            cart[index].quantity++;
+
+            updateCart();
+
+        }
+
+
+        function decreaseQuantity(index) {
+
+            if (cart[index].quantity > 1) {
+
+                cart[index].quantity--;
+
+            } else {
+
+                cart.splice(index, 1);
+
+            }
+
+            updateCart();
+
+        }
+
+
+        function removeFromCart(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        }
+
+
+        function openCart() {
+
+            document.getElementById("cart-overlay").style.display =
+                "block";
+
+        }
+
+
+        function closeCart() {
+
+            document.getElementById("cart-overlay").style.display =
+                "none";
+
+        }
+
+
+        /* Close cart when clicking outside */
+
+        document.getElementById("cart-overlay")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+
+                    closeCart();
+
+                }
+
+            });
+
+
+        updateCart();
+
+    </script>
+
+
 </body>
+
 </html>
+```
